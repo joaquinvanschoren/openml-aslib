@@ -14,22 +14,21 @@ See the [complete list of evaluation measures](https://www.openml.org/search?q=%
 
 Output
 ------
-Appears in the `output` subfolder. Two ARFF files should be generated:
+Appears in the `output` subfolder. Three ARFF files should be generated:
 
-`run_evaluations.arff`  
+`study_ID_run_evaluations_MEASURE.arff`  
 Contains the evaluation results of all OpenML runs in the study. Features:  
-* OpenML Data id (can be looked up as www.openml.org/d/DataID)
+* OpenML Task id (can be looked up as www.openml.org/t/TaskID)
 * Repetition: counter for runs executed multiple times
 * Algorithm: Algorithm name, in format FlowID_FlowName (can be looked up as www.openml.org/f/FlowID)
-* Evaluation score
+* Evaluation score (based on MEASURE)
 * Run Status: {ok, timeout, memout, not_applicable, crash, other}
 
-`metafeatures.arff`  
+`study_ID_metafeatures.arff`  
 Contains the computed values for all meta-features known to OpenML. Features:
-* OpenML Data id (can be looked up as www.openml.org/d/DataID)
+* OpenML Task id (can be looked up as www.openml.org/t/TaskID)
 * Repetition: counter for metafeatures computed multiple times
 * [One attribute for each OpenML meta-feature](https://www.openml.org/search?q=%2520measure_type%3Adata_quality&type=measure)
 
-
-
-
+`study_ID_joint_metadata.arff`
+Contains the data of both previous tables, joined by Task ID.
